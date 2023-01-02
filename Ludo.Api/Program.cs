@@ -1,4 +1,6 @@
+using FluentValidation.AspNetCore;
 using Ludo.Application.Commands.CreateGameCommand;
+using Ludo.Application.Validators;
 using Ludo.Core.Interfaces;
 using Ludo.Infra.Persistance;
 using Ludo.Infra.Persistence.Repositories;
@@ -15,7 +17,8 @@ builder.Services.AddDbContext<LudoDbContext>(p => p.UseSqlServer(connectionStrin
 builder.Services.AddScoped<IGameRepository, GameRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+        .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateGameCommandValidator>());
 
 
 builder.Services.AddMediatR(typeof(CreateGameCommand));

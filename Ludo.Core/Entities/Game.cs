@@ -2,15 +2,16 @@
 {
     public class Game : BaseEntity
     {
-        public Game(string title, string description, string category, string publisher, string language, string numberOfPlayers, int age)
+        public Game(string title, string description, string category, string publisher, string language, int minimumNumberOfPlayers, int maximumNumberOfPlayers,int minimumAge)
         {
             Title = title ?? throw new ArgumentNullException(nameof(title));
             Description = description ?? throw new ArgumentNullException(nameof(description));
             Category = category;
             Publisher = publisher ?? throw new ArgumentNullException(nameof(publisher));
             Language = language ?? throw new ArgumentNullException(nameof(language));
-            NumberOfPlayers = numberOfPlayers;
-            Age = age;
+            MinimumNumberOfPlayers = minimumNumberOfPlayers;
+            MaximumNumberOfPlayers = maximumNumberOfPlayers;
+            MinimumAge = minimumAge;
         }
 
         public string Title { get; private set; }
@@ -18,8 +19,9 @@
         public string Category { get; private set; }
         public string Publisher { get; private set; }
         public string Language { get; private set; }
-        public string NumberOfPlayers { get; private set; }
-        public int Age { get; private set; }
+        public int MinimumNumberOfPlayers { get; private set; }
+        public int MaximumNumberOfPlayers { get; private set; }
+        public int MinimumAge { get; private set; }
         public DateTime CreatedAt { get; private set; }
 
 

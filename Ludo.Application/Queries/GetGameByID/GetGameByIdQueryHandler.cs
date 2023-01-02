@@ -34,8 +34,9 @@ namespace Ludo.Application.Queries.GetGameByID
                 game.Category,
                 game.Publisher,
                 game.Language,
-                game.NumberOfPlayers,
-                game.Age
+                game.MinimumNumberOfPlayers,
+                game.MaximumNumberOfPlayers,
+                game.MinimumAge
                 );
 
             return gameViewModel;

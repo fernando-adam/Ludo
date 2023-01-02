@@ -22,7 +22,7 @@ namespace Ludo.Application.Commands.CreateUser
 
         public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            var user = new User(request.FirstName, request.LastName, request.Email, request.BirthDate);
+            var user = new User(request.FirstName, request.LastName, request.Email,request.Password, request.BirthDate);
 
            await _userRepository.AddAsync(user);
 

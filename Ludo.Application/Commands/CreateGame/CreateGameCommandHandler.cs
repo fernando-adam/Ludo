@@ -26,7 +26,8 @@ namespace Ludo.Application.Commands.CreateGameCommand
                     request.Category,
                     request.Publisher,
                     request.Language,
-                    request.NumberOfPlayers,
+                    request.MinimumNumberOfPlayers,
+                    request.MaximumNumberOfPlayers,
                     request.Age);
             await _gameRepository.AddAsync(game);
 

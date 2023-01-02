@@ -28,7 +28,8 @@ namespace Ludo.Application.Queries.GetAllGames
 
             var gamesViewModel = games
                                 .Select(p => new GameViewModel(p.Id, p.Title, p.Description, p.Category,
-                                                               p.Publisher, p.Language, p.NumberOfPlayers,                                         p.Age)).ToList();
+                                                               p.Publisher, p.Language, p.MinimumNumberOfPlayers,
+                                                               p.MaximumNumberOfPlayers, p.MinimumAge)).ToList();
 
             return gamesViewModel;
         }
