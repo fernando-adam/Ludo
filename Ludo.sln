@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ludo.Api", "Ludo.Api\Ludo.Api.csproj", "{356A98B6-E20A-44B3-9016-A5FEEC849B98}"
+	ProjectSection(ProjectDependencies) = postProject
+		{65524694-9AD1-4527-B83F-2965BD7E7739} = {65524694-9AD1-4527-B83F-2965BD7E7739}
+		{F4D74A60-A4FC-46BC-8802-4DFABF519D2A} = {F4D74A60-A4FC-46BC-8802-4DFABF519D2A}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ludo.Application", "Ludo.Application\Ludo.Application.csproj", "{65524694-9AD1-4527-B83F-2965BD7E7739}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9B9035B1-54C3-433F-89C5-BEE8980D70CD} = {9B9035B1-54C3-433F-89C5-BEE8980D70CD}
+		{F4D74A60-A4FC-46BC-8802-4DFABF519D2A} = {F4D74A60-A4FC-46BC-8802-4DFABF519D2A}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ludo.Infra", "Ludo.Infra\Ludo.Infra.csproj", "{9B9035B1-54C3-433F-89C5-BEE8980D70CD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F4D74A60-A4FC-46BC-8802-4DFABF519D2A} = {F4D74A60-A4FC-46BC-8802-4DFABF519D2A}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ludo.Core", "Ludo.Core\Ludo.Core.csproj", "{F4D74A60-A4FC-46BC-8802-4DFABF519D2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{356A98B6-E20A-44B3-9016-A5FEEC849B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{356A98B6-E20A-44B3-9016-A5FEEC849B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{356A98B6-E20A-44B3-9016-A5FEEC849B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{356A98B6-E20A-44B3-9016-A5FEEC849B98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65524694-9AD1-4527-B83F-2965BD7E7739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65524694-9AD1-4527-B83F-2965BD7E7739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65524694-9AD1-4527-B83F-2965BD7E7739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65524694-9AD1-4527-B83F-2965BD7E7739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B9035B1-54C3-433F-89C5-BEE8980D70CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B9035B1-54C3-433F-89C5-BEE8980D70CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B9035B1-54C3-433F-89C5-BEE8980D70CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B9035B1-54C3-433F-89C5-BEE8980D70CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4D74A60-A4FC-46BC-8802-4DFABF519D2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4D74A60-A4FC-46BC-8802-4DFABF519D2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4D74A60-A4FC-46BC-8802-4DFABF519D2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4D74A60-A4FC-46BC-8802-4DFABF519D2A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FF65165F-8AB3-45FC-88F1-E063C58EF4C4}
+	EndGlobalSection
+EndGlobal
