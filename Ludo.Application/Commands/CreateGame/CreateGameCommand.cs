@@ -16,7 +16,7 @@ namespace Ludo.Application.Commands.CreateGameCommand
         public string Publisher { get; set; }
         public string Language { get; set; }
         public string NumberOfPlayers { get; set; }
-        public int Age { get; private set; }
+        public int Age { get; set; }
 
     }
 }
