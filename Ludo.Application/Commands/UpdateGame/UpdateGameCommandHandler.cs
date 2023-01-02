@@ -1,4 +1,5 @@
-﻿using Ludo.Infra.Persistance;
+﻿using Ludo.Core.Interfaces;
+using Ludo.Infra.Persistance;
 using Ludo.Infra.Persistence.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -9,8 +10,8 @@ namespace Ludo.Application.Commands.UpdateGameCommand
 {
     public class UpdateGameCommandHandler : IRequestHandler<UpdateGameCommand, Unit>
     {
-        private readonly GameRepository _gameRepository;
-        public UpdateGameCommandHandler(GameRepository gameRepository)
+        private readonly IGameRepository _gameRepository;
+        public UpdateGameCommandHandler(IGameRepository gameRepository)
         {
             _gameRepository = gameRepository;
         }

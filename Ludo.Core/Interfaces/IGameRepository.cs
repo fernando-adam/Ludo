@@ -13,5 +13,6 @@ namespace Ludo.Core.Interfaces
         Task<Game> GetById(int id);
         Task AddAsync(Game game);
         Task SaveChangesAsync();
+        Task Delete(Game game);
     }
 }

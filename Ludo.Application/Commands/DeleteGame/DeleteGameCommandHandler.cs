@@ -1,4 +1,5 @@
-﻿using Ludo.Infra.Persistance;
+﻿using Ludo.Core.Interfaces;
+using Ludo.Infra.Persistance;
 using Ludo.Infra.Persistence.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -12,8 +13,8 @@ namespace Ludo.Application.Commands.DeleteGameCommand
 {
     public class DeleteGameCommandHandler : IRequestHandler<DeleteGameCommand, Unit>
     {
-        private GameRepository _gameRepository;
-        public DeleteGameCommandHandler(GameRepository gameRepository) 
+        private IGameRepository _gameRepository;
+        public DeleteGameCommandHandler(IGameRepository gameRepository) 
         {
             _gameRepository = gameRepository;
         }

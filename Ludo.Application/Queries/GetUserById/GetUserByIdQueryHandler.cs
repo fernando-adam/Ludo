@@ -1,4 +1,5 @@
 ﻿using Ludo.Application.VIewModels;
+using Ludo.Core.Interfaces;
 using Ludo.Infra.Persistance;
 using Ludo.Infra.Persistence.Repositories;
 using MediatR;
@@ -13,8 +14,8 @@ namespace Ludo.Application.Queries.GetUserById
 {
     public class GetUserByIdQueryHandler : IRequestHandler<GetUserByIdQuery, UserViewModel>
     {
-        private readonly UserRepository _userRepository;
-        public GetUserByIdQueryHandler(UserRepository userRepository) 
+        private readonly IUserRepository _userRepository;
+        public GetUserByIdQueryHandler(IUserRepository userRepository) 
         {
             _userRepository = userRepository;
         }

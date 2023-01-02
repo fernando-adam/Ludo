@@ -1,4 +1,5 @@
 ﻿using Ludo.Core.Entities;
+using Ludo.Core.Interfaces;
 using Ludo.Infra.Persistance;
 using Ludo.Infra.Persistence.Repositories;
 using MediatR;
@@ -12,8 +13,8 @@ namespace Ludo.Application.Commands.CreateGameCommand
 {
     public class CreateGameCommandHandler : IRequestHandler<CreateGameCommand, int>
     {
-        private readonly GameRepository _gameRepository;
-        public CreateGameCommandHandler(GameRepository gameRepository)
+        private readonly IGameRepository _gameRepository;
+        public CreateGameCommandHandler(IGameRepository gameRepository)
         {
             _gameRepository = gameRepository;
         }

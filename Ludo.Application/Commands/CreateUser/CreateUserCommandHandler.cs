@@ -13,9 +13,9 @@ namespace Ludo.Application.Commands.CreateUser
 {
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, int>
     {
-        private UserRepository _userRepository;
+        private IUserRepository _userRepository;
 
-        public CreateUserCommandHandler(UserRepository userRepository)
+        public CreateUserCommandHandler(IUserRepository userRepository)
         {
             _userRepository = userRepository;
         }
