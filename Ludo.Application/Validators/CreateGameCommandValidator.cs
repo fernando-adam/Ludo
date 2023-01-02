@@ -20,7 +20,7 @@ namespace Ludo.Application.Validators
             RuleFor(p => p.Title)
                 .MinimumLength(2)
                 .MaximumLength(50)
-                .WithMessage("Invalid number of characteres");
+                .WithMessage("Invalid number of characteres"); 
 
             RuleFor(p => p.Description)
                 .MinimumLength(5)
@@ -28,7 +28,7 @@ namespace Ludo.Application.Validators
                 .WithMessage("Invalid number of characteres");
 
             RuleFor(p => p.Age)
-                .NotEmpty()
+                .GreaterThanOrEqualTo(0)
                 .WithMessage("You must define an minimum age");
 
             RuleFor(p => p.Publisher)
