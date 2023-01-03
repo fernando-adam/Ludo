@@ -3,11 +3,13 @@ using Ludo.Application.Commands.UpdateGameCommand;
 using Ludo.Application.Queries.GetAllGames;
 using Ludo.Application.Queries.GetGameByID;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ludo.Api.Controllers
 {
     [Route("api/games")]
+    [Authorize]
     public class GameController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -18,9 +20,10 @@ namespace Ludo.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(string query)
+        [AllowAnonymous]
+        public async Task<IActionResult> Get()
         {
-            var getAllGamesQuery = new GetAllGamesQuery(query);
+            var getAllGamesQuery = new GetAllGamesQuery();
             var games = await _mediator.Send(getAllGamesQuery);
 
             return Ok(games);   
