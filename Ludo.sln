@@ -22,6 +22,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ludo.Infra", "Ludo.Infra\Lu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ludo.Core", "Ludo.Core\Ludo.Core.csproj", "{F4D74A60-A4FC-46BC-8802-4DFABF519D2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ludo.UnitTests", "Ludo.UnitTests\Ludo.UnitTests.csproj", "{8C5E743D-7D68-4D76-AA3B-C92788BC9919}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{F4D74A60-A4FC-46BC-8802-4DFABF519D2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4D74A60-A4FC-46BC-8802-4DFABF519D2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4D74A60-A4FC-46BC-8802-4DFABF519D2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C5E743D-7D68-4D76-AA3B-C92788BC9919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C5E743D-7D68-4D76-AA3B-C92788BC9919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C5E743D-7D68-4D76-AA3B-C92788BC9919}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C5E743D-7D68-4D76-AA3B-C92788BC9919}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
