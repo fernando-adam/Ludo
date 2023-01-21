@@ -20,7 +20,8 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("LudoCs");
-builder.Services.AddDbContext<LudoDbContext>(p => p.UseSqlServer(connectionString));
+//builder.Services.AddDbContext<LudoDbContext>(p => p.UseSqlServer(connectionString));
+builder.Services.AddDbContext<LudoDbContext>(p => p.UseInMemoryDatabase("LudoCs"));
 
 builder.Services.AddScoped<IGameRepository, GameRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
