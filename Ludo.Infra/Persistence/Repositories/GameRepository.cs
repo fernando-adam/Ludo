@@ -20,7 +20,7 @@ namespace Ludo.Infra.Persistence.Repositories
 
         public async Task<Game> GetById(int id)
         {
-            return await _dbContext.Games.SingleOrDefaultAsync(x => x.Id == id);
+            return await _dbContext.Games.SingleOrDefaultAsync(x => x.GameId == id);
         }
 
         public async Task AddAsync(Game game)

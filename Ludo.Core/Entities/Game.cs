@@ -1,6 +1,6 @@
 ﻿namespace Ludo.Core.Entities
 {
-    public class Game : BaseEntity
+    public class Game
     {
         public Game(string title, string description, string category, string publisher, string language, int minimumNumberOfPlayers, int maximumNumberOfPlayers,int minimumAge)
         {
@@ -14,6 +14,7 @@
             MinimumAge = minimumAge;
         }
 
+        public int GameId { get; }
         public string Title { get; private set; }
         public string Description { get; private set; }
         public string Category { get; private set; }

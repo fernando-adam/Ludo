@@ -26,7 +26,7 @@ namespace Ludo.Infra.Persistence.Repositories
 
         public async Task<User> GetByIdAsync(int id)
         {
-            return await _dbContext.Users.SingleOrDefaultAsync(p => p.Id == id);
+            return await _dbContext.Users.SingleOrDefaultAsync(p => p.UserId == id);
         }
 
         public async Task<User> GetUserByEmailAndPasswordAsync(string email, string passwordHash)

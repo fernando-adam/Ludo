@@ -28,7 +28,7 @@ namespace Ludo.Application.Queries.GetGameByID
             if (game == null) return null;
 
             var gameViewModel = new GameViewModel(
-                game.Id,
+                game.GameId,
                 game.Title,
                 game.Description,
                 game.Category,

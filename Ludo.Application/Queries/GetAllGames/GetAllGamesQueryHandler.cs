@@ -27,7 +27,7 @@ namespace Ludo.Application.Queries.GetAllGames
             var games = await _gameRepository.GetAllAsync();
 
             var gamesViewModel = games
-                                .Select(p => new GameViewModel(p.Id, p.Title, p.Description, p.Category,
+                                .Select(p => new GameViewModel(p.GameId, p.Title, p.Description, p.Category,
                                                                p.Publisher, p.Language, p.MinimumNumberOfPlayers,
                                                                p.MaximumNumberOfPlayers, p.MinimumAge)).ToList();
 

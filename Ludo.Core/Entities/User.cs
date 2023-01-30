@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ludo.Core.Entities
 {
-    public class User : BaseEntity
+    public class User
     {
 
         public User(string firstName, string lastName, string email,string password, string role, DateTime birthDate)
@@ -23,6 +23,8 @@ namespace Ludo.Core.Entities
             OwnedGames = new List<Game>();
             
         }
+
+        public int UserId { get; }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
         public string Email { get; private set; }

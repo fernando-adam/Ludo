@@ -31,7 +31,7 @@ namespace Ludo.Application.Commands.CreateGameCommand
                     request.Age);
             await _gameRepository.AddAsync(game);
 
-            return game.Id;
+            return game.GameId;
         }
     }
 }

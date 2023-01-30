@@ -9,7 +9,7 @@ namespace Ludo.Infra.Persistance.Configurations
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder
-                .HasKey(s => s.Id);
+                .HasKey(s => s.UserId);
         }
     }
 }
