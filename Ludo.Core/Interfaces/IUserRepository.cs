@@ -12,5 +12,6 @@ namespace Ludo.Core.Interfaces
         Task<User> GetByIdAsync(int id);
         Task<User> GetUserByEmailAndPasswordAsync(string email, string passwordHash);
         Task AddAsync(User user);
+        Task AddGamesAsync(int idUser, int[] idGames);
     }
 }

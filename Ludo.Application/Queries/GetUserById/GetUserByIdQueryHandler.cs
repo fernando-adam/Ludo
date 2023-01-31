@@ -21,7 +21,7 @@ namespace Ludo.Application.Queries.GetUserById
         }
         public async Task<UserViewModel> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.GetByIdAsync(request.Id);
+            var user = await _userRepository.GetByIdAsync(request.UserId);
             if (user == null) return null;
 
             return new UserViewModel(user.FirstName, user.LastName, user.Email);

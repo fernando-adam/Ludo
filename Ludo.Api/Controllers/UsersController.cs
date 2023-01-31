@@ -1,4 +1,5 @@
-﻿using Ludo.Application.Commands.CreateUser;
+﻿using Ludo.Application.Commands.AddUserGame;
+using Ludo.Application.Commands.CreateUser;
 using Ludo.Application.Commands.LoginUser;
 using Ludo.Application.Queries.GetUserById;
 using MediatR;
@@ -30,6 +31,14 @@ namespace Ludo.Api.Controllers
 
         }
 
+        [HttpPut]
+        public async Task<IActionResult> AddGames(AddUserGameCommand command)
+        {
+            await _mediator.Send(command);
+            return Ok();
+        }
+            
+
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Post(CreateUserCommand command)
@@ -45,7 +54,7 @@ namespace Ludo.Api.Controllers
         {
             var loginUserViewModel = await _mediator.Send(command);
 
-            if(loginUserViewModel == null) return BadRequest();
+            if (loginUserViewModel == null) return BadRequest();
 
             return Ok(loginUserViewModel);
 

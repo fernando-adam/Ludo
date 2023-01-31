@@ -44,6 +44,8 @@ namespace Ludo.Api.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
+
         public async Task<IActionResult> Post(CreateGameCommand command)
         {
             if(command.Title == null)

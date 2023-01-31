@@ -10,18 +10,15 @@ using Ludo.Infra.Persistance;
 using Ludo.Infra.Persistence.Repositories;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("LudoCs");
-//builder.Services.AddDbContext<LudoDbContext>(p => p.UseSqlServer(connectionString));
-builder.Services.AddDbContext<LudoDbContext>(p => p.UseInMemoryDatabase("LudoCs"));
+builder.Services.AddDbContext<LudoDbContext>(p => p.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<IGameRepository, GameRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();

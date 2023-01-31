@@ -20,8 +20,10 @@ namespace Ludo.Core.Entities
 
             Active = true;
             CreatedAt = DateTime.Now;
-            OwnedGames = new List<Game>();
-            
+
+            UserGames = new List<UserGame>();
+
+
         }
 
         public int UserId { get; }
@@ -33,7 +35,8 @@ namespace Ludo.Core.Entities
         public bool Active { get; private set; }
         public DateTime BirthDate { get; private set; }
         public DateTime CreatedAt { get; private set; }
-        
-        public List<Game>OwnedGames { get; private set; }
+
+        /* EF Relations */
+        public List<UserGame> UserGames { get; private set; }
     }
 }

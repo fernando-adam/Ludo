@@ -12,6 +12,8 @@
             MinimumNumberOfPlayers = minimumNumberOfPlayers;
             MaximumNumberOfPlayers = maximumNumberOfPlayers;
             MinimumAge = minimumAge;
+
+            UserGames = new List<UserGame> { };
         }
 
         public int GameId { get; }
@@ -24,6 +26,9 @@
         public int MaximumNumberOfPlayers { get; private set; }
         public int MinimumAge { get; private set; }
         public DateTime CreatedAt { get; private set; }
+
+        /* EF Relations */
+        public List<UserGame> UserGames { get; private set; }
 
 
         public void Update(string title, string description)

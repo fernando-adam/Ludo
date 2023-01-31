@@ -12,9 +12,9 @@ namespace Ludo.Application.Queries.GetUserById
     {
         public GetUserByIdQuery(int id)
         {
-            Id = id;
+            UserId = id;
         }
 
-        public int Id { get; set; }
+        public int UserId { get; set; }
     }
 }
