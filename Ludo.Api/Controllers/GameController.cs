@@ -44,8 +44,6 @@ namespace Ludo.Api.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
-
         public async Task<IActionResult> Post(CreateGameCommand command)
         {
             if(command.Title == null)
@@ -59,7 +57,7 @@ namespace Ludo.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, UpdateGameCommand command)
+        public async Task<IActionResult> Put(UpdateGameCommand command)
         {
             if(command.Description.Length > 300 || command.Title == null)
             {

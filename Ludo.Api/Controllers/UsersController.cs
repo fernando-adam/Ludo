@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Ludo.Api.Controllers
 {
+    [Authorize]
     [Route("users")]
     public class UsersController: ControllerBase
     {
