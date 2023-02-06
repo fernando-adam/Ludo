@@ -26,30 +26,37 @@ namespace Ludo.Infra.Persistence.Repositories
 
         public async Task AddGamesAsync(int idUser, int[] idGames)
         {
-            var user = await _dbContext.Users.FirstOrDefaultAsync(p => p.UserId == idUser);
-
-            var gameList = new List<UserGame>();
-
+            var user = await _dbContext.Users.Include(x => x.UserGames).FirstOrDefaultAsync(p => p.UserId == idUser);
             for (int i = 0; i < idGames.Length; i++)
             {
-                var game = await _dbContext.Games.FirstOrDefaultAsync(p => p.GameId == idGames[i]);
-                var gameConvertido = new UserGame(game, user);
-
-                _dbContext.UserGames.Add(gameConvertido);
-
+                if (idGames[i] != 0 && !CheckDuplicateInGameList(user, idGames[i]))
+                {
+                    var game = await _dbContext.Games.FirstOrDefaultAsync(p => p.GameId == idGames[i]);
+                    var gameConvertido = new UserGame { Game = game, User = user };
+                    await _dbContext.UserGame.AddAsync(gameConvertido);
+                } 
             }
-            await _dbContext.SaveChangesAsync(); 
-
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task<User> GetByIdAsync(int id)
         {
-            return await _dbContext.Users.SingleOrDefaultAsync(p => p.UserId == id);
+            return await _dbContext.Users.Include(p => p.UserGames).FirstOrDefaultAsync(i => i.UserId == id);
+             
         }
 
         public async Task<User> GetUserByEmailAndPasswordAsync(string email, string passwordHash)
         {
-            return await _dbContext.Users.SingleOrDefaultAsync( u => u.Email == email && u.Password == passwordHash);
+            return await _dbContext.Users.FirstOrDefaultAsync( u => u.Email == email && u.Password == passwordHash);
+        }
+
+        private bool CheckDuplicateInGameList(User user, int gameId)
+        {
+            for (int i = 0; i < user.UserGames.Count; i++)
+            {
+                if (user.UserGames[i].GameId == gameId) return true;
+            }
+            return false;
         }
     }
 }

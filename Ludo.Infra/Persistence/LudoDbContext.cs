@@ -15,7 +15,7 @@ namespace Ludo.Infra.Persistance
         
         public DbSet<Game> Games { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<UserGame> UserGames { get; set; }
+        public DbSet<UserGame> UserGame { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

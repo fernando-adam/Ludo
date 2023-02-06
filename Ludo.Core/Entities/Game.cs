@@ -13,7 +13,7 @@
             MaximumNumberOfPlayers = maximumNumberOfPlayers;
             MinimumAge = minimumAge;
 
-            UserGames = new List<UserGame> { };
+            UserGames = new List<UserGame>();
         }
 
         public int GameId { get; }

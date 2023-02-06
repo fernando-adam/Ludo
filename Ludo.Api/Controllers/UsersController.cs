@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace Ludo.Api.Controllers
 {
     [Route("users")]
-    [Authorize]
     public class UsersController: ControllerBase
     {
         private readonly IMediator _mediator;
@@ -31,7 +30,7 @@ namespace Ludo.Api.Controllers
 
         }
 
-        [HttpPut]
+        [HttpPut("addgames")]
         public async Task<IActionResult> AddGames(AddUserGameCommand command)
         {
             await _mediator.Send(command);

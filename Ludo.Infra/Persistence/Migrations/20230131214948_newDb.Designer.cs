@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ludo.Infra.Persistence.Migrations
 {
     [DbContext(typeof(LudoDbContext))]
-    [Migration("20230130151723_gameUserLogic")]
-    partial class gameUserLogic
+    [Migration("20230131214948_newDb")]
+    partial class newDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -123,7 +123,7 @@ namespace Ludo.Infra.Persistence.Migrations
 
                     b.HasIndex("GameId");
 
-                    b.ToTable("UserGame");
+                    b.ToTable("UserGames");
                 });
 
             modelBuilder.Entity("Ludo.Core.Entities.UserGame", b =>
