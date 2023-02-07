@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace Ludo.Api.Controllers
 {
     [Route("api/games")]
-    [Authorize]
     public class GameController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -46,11 +45,6 @@ namespace Ludo.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(CreateGameCommand command)
         {
-            if(command.Title == null)
-            {
-                return BadRequest("O Jogo deve conter um nome");
-            }
-
             var ret = await _mediator.Send(command);
 
             return Ok(ret);

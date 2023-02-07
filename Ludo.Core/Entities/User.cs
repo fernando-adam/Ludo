@@ -20,10 +20,7 @@ namespace Ludo.Core.Entities
 
             Active = true;
             CreatedAt = DateTime.Now;
-
             UserGames = new List<UserGame>();
-
-
         }
 
         public int UserId { get; }
@@ -33,6 +30,7 @@ namespace Ludo.Core.Entities
         public string Password { get; private set; }
         public string Role { get; private set; }
         public bool Active { get; private set; }
+        public List<Advertisement> OwnedAdvertisements { get; private set; }
         public DateTime BirthDate { get; private set; }
         public DateTime CreatedAt { get; private set; }
 

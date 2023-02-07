@@ -22,6 +22,59 @@ namespace Ludo.Infra.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("Ludo.Core.Entities.Advertisement", b =>
+                {
+                    b.Property<int>("AdvertisementId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AdvertisementId"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("FinishedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SellerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("TotalCost")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("AdvertisementId");
+
+                    b.HasIndex("SellerId");
+
+                    b.ToTable("Advertisements");
+                });
+
+            modelBuilder.Entity("Ludo.Core.Entities.AdvertisementGame", b =>
+                {
+                    b.Property<int>("AdvertisementId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GameId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AdvertisementId", "GameId");
+
+                    b.HasIndex("GameId");
+
+                    b.ToTable("AdvertisementGames");
+                });
+
             modelBuilder.Entity("Ludo.Core.Entities.Game", b =>
                 {
                     b.Property<int>("GameId")
@@ -121,7 +174,37 @@ namespace Ludo.Infra.Persistence.Migrations
 
                     b.HasIndex("GameId");
 
-                    b.ToTable("UserGames");
+                    b.ToTable("UserGame");
+                });
+
+            modelBuilder.Entity("Ludo.Core.Entities.Advertisement", b =>
+                {
+                    b.HasOne("Ludo.Core.Entities.User", "Seller")
+                        .WithMany("OwnedAdvertisements")
+                        .HasForeignKey("SellerId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Seller");
+                });
+
+            modelBuilder.Entity("Ludo.Core.Entities.AdvertisementGame", b =>
+                {
+                    b.HasOne("Ludo.Core.Entities.Advertisement", "Advertisement")
+                        .WithMany("AdvertisementGames")
+                        .HasForeignKey("AdvertisementId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Ludo.Core.Entities.Game", "Game")
+                        .WithMany("AdvertisementGames")
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Advertisement");
+
+                    b.Navigation("Game");
                 });
 
             modelBuilder.Entity("Ludo.Core.Entities.UserGame", b =>
@@ -143,13 +226,22 @@ namespace Ludo.Infra.Persistence.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Ludo.Core.Entities.Advertisement", b =>
+                {
+                    b.Navigation("AdvertisementGames");
+                });
+
             modelBuilder.Entity("Ludo.Core.Entities.Game", b =>
                 {
+                    b.Navigation("AdvertisementGames");
+
                     b.Navigation("UserGames");
                 });
 
             modelBuilder.Entity("Ludo.Core.Entities.User", b =>
                 {
+                    b.Navigation("OwnedAdvertisements");
+
                     b.Navigation("UserGames");
                 });
 #pragma warning restore 612, 618

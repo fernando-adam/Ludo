@@ -23,6 +23,7 @@ builder.Services.AddDbContext<LudoDbContext>(p => p.UseSqlServer(connectionStrin
 
 builder.Services.AddScoped<IGameRepository, GameRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAdvertisementRepository, AdvertisementRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services
@@ -80,7 +81,7 @@ builder.Services.AddSwaggerGen(c =>
                     Id = "Bearer"
                 }
             },
-            new string[] { }
+            Array.Empty<string>()
         }
     });
 });

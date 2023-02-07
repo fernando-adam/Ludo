@@ -33,7 +33,7 @@ namespace Ludo.Application.Validators
                 .WithMessage("Password must contain at least 8 characteres, 1 number, 1 upper-cased letter, 1 lower-cased letter and a special character");
         }
 
-        public bool ValidPassword(string password)
+        public static bool ValidPassword(string password)
         {
             var regex = new Regex(@"^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$");
 
