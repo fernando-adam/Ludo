@@ -53,11 +53,6 @@ namespace Ludo.Api.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(UpdateGameCommand command)
         {
-            if(command.Description.Length > 300 || command.Title == null)
-            {
-                return BadRequest();
-            }
-
             await _mediator.Send(command);
 
             return NoContent();

@@ -2,11 +2,6 @@
 using Ludo.Core.Interfaces;
 using Ludo.Infra.Persistance;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ludo.Infra.Persistence.Repositories
 {
@@ -25,7 +20,10 @@ namespace Ludo.Infra.Persistence.Repositories
 
         public async Task<List<Advertisement>> GetAllAsync()
         {
-            return await _dbContext.Advertisements.ToListAsync();
+            return await _dbContext.Advertisements.
+                            Include(a=> a.Seller).
+                            Include(a => a.AdvertisementGames)
+                            .ToListAsync();
         }
 
         public async Task<Advertisement> GetDetailsByIdAsync(int id)
@@ -38,7 +36,7 @@ namespace Ludo.Infra.Persistence.Repositories
 
         public async Task<Advertisement> GetByIdAsync(int id)
         {
-            return await _dbContext.Advertisements.SingleOrDefaultAsync(p => p.AdvertisementId == id);
+            return await _dbContext.Advertisements.FirstOrDefaultAsync(p => p.AdvertisementId == id);
         }
 
         public void AddGames(int adId,int[] idGames)

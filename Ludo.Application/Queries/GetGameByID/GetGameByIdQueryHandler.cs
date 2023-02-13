@@ -1,16 +1,6 @@
-﻿using Dapper;
-using Ludo.Application.VIewModels;
+﻿using Ludo.Application.VIewModels;
 using Ludo.Core.Interfaces;
-using Ludo.Infra.Persistance;
 using MediatR;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ludo.Application.Queries.GetGameByID
 {

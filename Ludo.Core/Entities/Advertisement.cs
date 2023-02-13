@@ -1,9 +1,4 @@
 ﻿using Ludo.Core.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ludo.Core.Entities
 {
@@ -35,6 +30,15 @@ namespace Ludo.Core.Entities
 
         /* EF Relations */
         public List<AdvertisementGame>? AdvertisementGames { get; private set; }
+        
+        public void Finish()
+        {
+            if (Status == AdvertisementEnum.InProgress)
+            {
+                Status = AdvertisementEnum.Sold;
+                FinishedAt = DateTime.Now;
+            }
+        }
 
     }
 }

@@ -2,11 +2,6 @@
 using Ludo.Core.Interfaces;
 using Ludo.Infra.Persistance;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ludo.Infra.Persistence.Repositories
 {
@@ -47,7 +42,8 @@ namespace Ludo.Infra.Persistence.Repositories
 
         public async Task<User> GetUserByEmailAndPasswordAsync(string email, string passwordHash)
         {
-            return await _dbContext.Users.FirstOrDefaultAsync( u => u.Email == email && u.Password == passwordHash);
+            var ad = await _dbContext.Users.FirstOrDefaultAsync( u => u.Email == email && u.Password == passwordHash);
+            return ad;
         }
 
         private bool CheckDuplicateInGameList(User user, int gameId)

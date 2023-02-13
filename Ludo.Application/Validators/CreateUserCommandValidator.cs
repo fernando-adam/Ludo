@@ -1,12 +1,6 @@
 ﻿using FluentValidation;
 using Ludo.Application.Commands.CreateUser;
-using Microsoft.AspNetCore.Rewrite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Ludo.Application.Validators
 {

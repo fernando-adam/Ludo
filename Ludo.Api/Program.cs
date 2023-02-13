@@ -21,6 +21,8 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("LudoCs");
 builder.Services.AddDbContext<LudoDbContext>(p => p.UseSqlServer(connectionString));
 
+builder.Services.AddHttpClient();
+
 builder.Services.AddScoped<IGameRepository, GameRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAdvertisementRepository, AdvertisementRepository>();
