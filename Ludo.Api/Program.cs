@@ -1,5 +1,6 @@
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Ludo.Api.Extensions;
 using Ludo.Api.Filters;
 using Ludo.Application.Commands.CreateGameCommand;
 using Ludo.Application.Validators;
@@ -24,11 +25,8 @@ builder.Services.AddDbContext<LudoDbContext>(p => p.UseSqlServer(connectionStrin
 
 builder.Services.AddHttpClient();
 
-builder.Services.AddScoped<IGameRepository, GameRepository>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IAdvertisementRepository, AdvertisementRepository>();
-builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddInfrastructure();
+
 
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
