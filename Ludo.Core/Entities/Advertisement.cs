@@ -40,5 +40,11 @@ namespace Ludo.Core.Entities
             }
         }
 
+        public void SetPaymentPending()
+        {
+            Status = AdvertisementEnum.PaymentPending;
+            FinishedAt = null;
+        }
+
     }
 }

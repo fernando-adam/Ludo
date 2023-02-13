@@ -13,7 +13,7 @@ namespace Ludo.Infra.Services
         public PaymentService(IHttpClientFactory http, IConfiguration configuration)
         {
             _http = http;
-            _paymentBaseUrl = configuration.GetSection("Services: Payments").Value;
+            _paymentBaseUrl = configuration.GetSection("Services:Payments").Value;
         }
         public async Task<bool> ProcessPayment(PaymentInfoDTO paymentInfoDTO)
         {
@@ -31,7 +31,6 @@ namespace Ludo.Infra.Services
             var response = await httpClient.PostAsync(url, paymentInfoContent);
 
             return response.IsSuccessStatusCode;
-
 
         }
     }

@@ -8,6 +8,7 @@ using Ludo.Core.Services;
 using Ludo.Infra.AuthServices;
 using Ludo.Infra.Persistance;
 using Ludo.Infra.Persistence.Repositories;
+using Ludo.Infra.Services;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +28,7 @@ builder.Services.AddScoped<IGameRepository, GameRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAdvertisementRepository, AdvertisementRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
 
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
