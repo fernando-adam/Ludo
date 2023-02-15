@@ -18,17 +18,15 @@ namespace Ludo.Application.Commands.FinishAdvertisement
         {
             var ad = await _adRepository.GetByIdAsync(request.Id);
 
-            ad.Finish();
-
             var paymentInfoDto = new PaymentInfoDTO(request.Id, request.CreditCardNumber, request.Cvv, request.ExpiresAt, request.FullName, request.Amount);
 
-            var result = await _paymentService.ProcessPayment(paymentInfoDto);
+            _paymentService.ProcessPayment(paymentInfoDto);
 
-            if (!result) ad.SetPaymentPending();
+            ad.SetPaymentPending();
 
             await _adRepository.SaveChangesAsync();
 
-            return true;
+            return true;   
         }
     }
 }

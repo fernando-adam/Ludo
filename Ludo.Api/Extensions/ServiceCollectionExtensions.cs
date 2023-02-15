@@ -1,6 +1,8 @@
-﻿using Ludo.Core.Interfaces;
+﻿using Ludo.Application.Consumers;
+using Ludo.Core.Interfaces;
 using Ludo.Core.Services;
 using Ludo.Infra.AuthServices;
+using Ludo.Infra.MessageBus;
 using Ludo.Infra.Persistence.Repositories;
 using Ludo.Infra.Services;
 
@@ -16,6 +18,8 @@ namespace Ludo.Api.Extensions
             services.AddScoped<IAdvertisementRepository, AdvertisementRepository>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IPaymentService, PaymentService>();
+            services.AddScoped<IMessageBusService, MessageBusService>();
+            services.AddHostedService<PaymentApprovedConsumer>();
 
             return services;
         }

@@ -30,7 +30,14 @@ namespace Ludo.Core.Entities
 
         /* EF Relations */
         public List<AdvertisementGame>? AdvertisementGames { get; private set; }
-        
+
+
+        public void Update(string title, string description, decimal totalCost)
+        {
+            Title = title;
+            Description = description;
+            TotalCost = totalCost;
+        }
         public void Finish()
         {
             if (Status == AdvertisementEnum.InProgress)
