@@ -54,7 +54,7 @@ namespace Ludo.Api.Controllers
         {
             var loginUserViewModel = await _mediator.Send(command);
 
-            if (loginUserViewModel == null) return BadRequest();
+            if (loginUserViewModel == null) return Unauthorized();
 
             return Ok(loginUserViewModel);
 

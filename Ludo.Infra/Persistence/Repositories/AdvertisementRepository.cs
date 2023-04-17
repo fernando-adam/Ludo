@@ -23,6 +23,7 @@ namespace Ludo.Infra.Persistence.Repositories
             return await _dbContext.Advertisements.
                             Include(a=> a.Seller).
                             Include(a => a.AdvertisementGames)
+                            .Where(p => p.Status == Core.Enums.AdvertisementEnum.InProgress) 
                             .ToListAsync();
         }
 

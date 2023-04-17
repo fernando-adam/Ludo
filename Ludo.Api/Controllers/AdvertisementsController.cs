@@ -1,5 +1,6 @@
 ﻿using Ludo.Application.Commands.AddAdvertisement;
 using Ludo.Application.Commands.FinishAdvertisement;
+using Ludo.Application.Commands.UpdateAdvertisement;
 using Ludo.Application.Queries.GetAdvertisementById;
 using Ludo.Application.Queries.GetAllAdsQuery;
 using Ludo.Application.VIewModels;
@@ -55,6 +56,13 @@ namespace Ludo.Api.Controllers
             if(!result) return BadRequest("Payment was not processed");
 
             return Accepted();
-        } 
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(UpdateAdvertisementCommand command)
+        {
+            await _mediator.Send(command);
+            return NoContent();  
+        }
     }
 }
